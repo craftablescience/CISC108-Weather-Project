@@ -1,6 +1,8 @@
 from cisc108 import assert_equal
 from openweathermap import *
 
+print(make_request(q="drljfk"))
+
 def kelvin_to_celcius(degrees: float)->float:
     return degrees-273
 
