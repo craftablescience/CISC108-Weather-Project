@@ -1,7 +1,7 @@
 import requests
 from pprint import pprint
 import json
-
+from cisc108 import assert_equal
 key = ""
 try:
     with open("secrets.json") as file:
@@ -25,3 +25,7 @@ def kelvin_to_celcius(degrees: float)->float:
 
 def celcius_to_farenheit(degrees: float)->float:
     return (degrees*1.8)+32
+
+assert_equal(celcius_to_farenheit(32.0), 89.6)
+assert_equal(celcius_to_farenheit(-32.0), -25.6)
+assert_equal(kelvin_to_celcius(500), 227)
