@@ -20,8 +20,8 @@ city_id = input("Enter a city: ")
 weather_data = requests.get(base_url + "?q=" + city_id + "&appid=" + key).json()
 pprint(weather_data)
 
-def kelvin_to_celcius(degrees: int)->int:
+def kelvin_to_celcius(degrees: float)->float:
     return degrees-273
 
-def celcius_to_farenheit(degrees: int)->int:
+def celcius_to_farenheit(degrees: float)->float:
     return (degrees*1.8)+32
