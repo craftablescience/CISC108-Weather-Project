@@ -3,15 +3,31 @@ from openweathermap import *
 
 print(make_request(q="Pittsburgh"))
 
-def kelvin_to_celcius(degrees: float)->float:
+def kelvin_to_celsius(degrees: float)->float:
+    '''
+    Converts degrees kelvin to degrees celsius
+
+    :param degrees:
+    Degrees in kelvin
+    :return:
+    float
+    '''
     return degrees-273
 
-def celcius_to_farenheit(degrees: float)->float:
+def celsius_to_fahrenheit(degrees: float)->float:
+    '''
+    Converts degrees celsius to degrees fahrenheit
+
+    :param degrees:
+    Degrees in celsius
+    :return:
+    float
+    '''
     return (degrees*1.8)+32
 
-assert_equal(celcius_to_farenheit(32.0), 89.6)
-assert_equal(celcius_to_farenheit(-32.0), -25.6)
-assert_equal(kelvin_to_celcius(500), 227)
+assert_equal(celsius_to_fahrenheit(32.0), 89.6)
+assert_equal(celsius_to_fahrenheit(-32.0), -25.6)
+assert_equal(kelvin_to_celsius(500), 227)
 
 
 
