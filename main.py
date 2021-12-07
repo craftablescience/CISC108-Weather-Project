@@ -32,6 +32,14 @@ assert_equal(kelvin_to_celsius(500), 227)
 
 
 def if_snowing(weather_set: dict)-> bool:
+    '''
+    Takes in a dictionary from the website and from there searches through the keys to determine if snowing is True or False
+
+    :param weather_set:
+    The set of data from the web API
+    :return: bool
+    Whether it is snowing or not
+    '''
     return "snow" in weather_set
 
 assert_equal(if_snowing({'coord': {'lon': 140.2167, 'lat': 39.65}, 'weather': [{'id': 600, 'main': 'Snow', 'description': 'light snow', 'icon': '13n'}], 'base': 'stations', 'main': {'temp': 274.67, 'feels_like': 267.86, 'temp_min': 274.67, 'temp_max': 274.67, 'pressure': 1008, 'humidity': 74, 'sea_level': 1008, 'grnd_level': 1005}, 'visibility': 2667, 'wind': {'speed': 10.92, 'deg': 285, 'gust': 17.16}, 'snow': {'1h': 0.22}, 'clouds': {'all': 100}, 'dt': 1638388040, 'sys': {'country': 'JP', 'sunrise': 1638394899, 'sunset': 1638429336}, 'timezone': 32400, 'id': 2110608, 'name': 'Wada', 'cod': 200}
@@ -42,6 +50,14 @@ assert_equal(if_snowing({'coord': {'lon': -74.1724, 'lat': 40.7357}, 'weather': 
 ), False)
 
 def if_raining(weather_set: dict)-> bool:
+    '''
+    Takes in a dictionary from the website and from there searches through the keys to determine if raining is True or False
+
+    :param weather_set:
+    The set of data from the web API
+    :return: bool
+    Whether it is raining or not
+    '''
     return "rain" in weather_set
 
 assert_equal(if_raining({'coord': {'lon': 140.2167, 'lat': 39.65}, 'weather': [{'id': 600, 'main': 'Snow', 'description': 'light snow', 'icon': '13n'}], 'base': 'stations', 'main': {'temp': 274.67, 'feels_like': 267.86, 'temp_min': 274.67, 'temp_max': 274.67, 'pressure': 1008, 'humidity': 74, 'sea_level': 1008, 'grnd_level': 1005}, 'visibility': 2667, 'wind': {'speed': 10.92, 'deg': 285, 'gust': 17.16}, 'snow': {'1h': 0.22}, 'clouds': {'all': 100}, 'dt': 1638388040, 'sys': {'country': 'JP', 'sunrise': 1638394899, 'sunset': 1638429336}, 'timezone': 32400, 'id': 2110608, 'name': 'Wada', 'cod': 200}
