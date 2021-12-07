@@ -9,8 +9,8 @@ def kelvin_to_celsius(degrees: float)->float:
 
     :param degrees:
     Degrees in kelvin
-    :return:
-    float
+    :return: float
+    Degrees in celsius
     '''
     return degrees-273
 
@@ -20,8 +20,8 @@ def celsius_to_fahrenheit(degrees: float)->float:
 
     :param degrees:
     Degrees in celsius
-    :return:
-    float
+    :return: float
+    Degrees in fahrenheit
     '''
     return (degrees*1.8)+32
 
