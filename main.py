@@ -66,3 +66,31 @@ assert_equal(if_raining({'coord': {'lon': -79.9959, 'lat': 40.4406}, 'weather': 
 ), True)
 assert_equal(if_raining({'coord': {'lon': -74.1724, 'lat': 40.7357}, 'weather': [{'id': 800, 'main': 'Clear', 'description': 'clear sky', 'icon': '01d'}], 'base': 'stations', 'main': {'temp': 282.23, 'feels_like': 282.23, 'temp_min': 280.43, 'temp_max': 283.89, 'pressure': 1020, 'humidity': 47}, 'visibility': 10000, 'wind': {'speed': 0.89, 'deg': 179, 'gust': 2.68}, 'clouds': {'all': 1}, 'dt': 1638388045, 'sys': {'type': 2, 'id': 2003689, 'country': 'US', 'sunrise': 1638360113, 'sunset': 1638394211}, 'timezone': -18000, 'id': 5101798, 'name': 'Newark', 'cod': 200}
 ), False)
+
+
+def clothes_by_temp(degrees: float)-> str:
+    '''
+    Converts a temperature (in fahrenheit) into a list of clothing that is appropriate for that weather
+
+    :param degrees:
+    The given degrees (in fahrenheit)
+    :return: str
+    Appropriate clothing for the given temperature
+    '''
+    if degrees < 35:
+        cold_weather = ["long sleeve", "pants", "scarf", "gloves", "hat", "boots", "sweatshirt"]
+        return cold_weather
+    elif 35 < degrees < 55:
+        cooler_weather = ["jacket", "sweatshirt", "long sleeve", "pants", "sneakers"]
+        return cooler_weather
+    elif 55 < degrees < 70:
+        warm_weather = ["t-shirt", "pants", "sneakers"]
+        return warm_weather
+    else:
+        hot_weather = ["tank top", "shorts", "dress", "flip flops"]
+        return hot_weather
+
+assert_equal(clothes_by_temp(2), ["long sleeve", "pants", "scarf", "gloves", "hat", "boots", "sweatshirt"])
+assert_equal(clothes_by_temp(45), ["jacket", "sweatshirt", "long sleeve", "pants", "sneakers"])
+assert_equal(clothes_by_temp(60), ["t-shirt", "pants", "sneakers"])
+assert_equal(clothes_by_temp(80), ["tank top", "shorts", "dress", "flip flops"])
