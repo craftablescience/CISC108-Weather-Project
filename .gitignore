@@ -129,6 +129,7 @@ dmypy.json
 .pyre/
 
 # Project specific
+.idea/
 secrets.json
 colby's_playground.py
 
