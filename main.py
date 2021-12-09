@@ -123,6 +123,14 @@ def feels_like_temperature(weather_set: dict) -> float:
 
 
 def clothes_for_location(location: str) -> list:
+    '''
+    This function takes a location and determines suitable clothing for the weather of the given location
+
+    :param location:
+    A location given by the user
+    :return:
+    A list of clothes that are suitable for the weather of the given location
+    '''
     if if_snowing(find_weather_location(location)) == True:
         return ["hat", "heavy coat", "scarf", "long sleeve", "pants", "boots"]
     if if_raining(find_weather_location(location)) == True:
