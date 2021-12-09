@@ -1,7 +1,5 @@
 from cisc108 import assert_equal
-from openweathermap import *
 
-print(make_request(q="Pittsburgh"))
 
 def kelvin_to_celsius(degrees: float)->float:
     '''
