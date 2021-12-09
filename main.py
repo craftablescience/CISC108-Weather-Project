@@ -127,3 +127,22 @@ assert_equal(feels_like_temperature({'coord': {'lon': -74.1724, 'lat': 40.7357},
 ), 275.08)
 assert_equal(feels_like_temperature({'coord': {'lon': -116.2035, 'lat': 43.6135}, 'weather': [{'id': 701, 'main': 'Mist', 'description': 'mist', 'icon': '50d'}], 'base': 'stations', 'main': {'temp': 275.48, 'feels_like': 275.48, 'temp_min': 273.64, 'temp_max': 277.86, 'pressure': 1020, 'humidity': 87}, 'visibility': 3219, 'wind': {'speed': 0.45, 'deg': 295, 'gust': 0.89}, 'clouds': {'all': 90}, 'dt': 1638898070, 'sys': {'type': 2, 'id': 2043419, 'country': 'US', 'sunrise': 1638889500, 'sunset': 1638922094}, 'timezone': -25200, 'id': 5586437, 'name': 'Boise', 'cod': 200}
 ), 275.48)
+
+def clothes_for_location(location: str) -> list:
+    '''
+    This function takes a location and determines suitable clothing for the weather of the given location
+    :param location:
+    A location given by the user
+    :return:
+    A list of clothes that are suitable for the weather of the given location
+    '''
+    if if_snowing(find_weather_location(location)) == True:
+        return ["hat", "heavy coat", "scarf", "long sleeve", "pants", "boots"]
+    if if_raining(find_weather_location(location)) == True:
+        return ["raincoat", "long sleeve", "pants", "boots", "umbrella"]
+    else:
+        return clothes_by_temp(celsius_to_fahrenheit(kelvin_to_celsius(feels_like_temperature(find_weather_location(location)))))
+assert_equal(clothes_for_location("Newark"), ["jacket", "sweatshirt", "long sleeve", "pants", "sneakers"])
+assert_equal(clothes_for_location("Canberra"), ["raincoat", "long sleeve", "pants", "boots", "umbrella"])
+assert_equal(clothes_for_location("Salt Lake City"), ["hat", "heavy coat", "scarf", "long sleeve", "pants", "boots"])
+assert_equal(clothes_for_location("Mexico City"), ["t-shirt", "pants", "sneakers"])
