@@ -15,6 +15,8 @@ def get_background_filename():
         background_filename += "rainy"
     elif if_cloudy(data):
         background_filename += "cloudy"
+    else:
+        background_filename += "default"
     background_filename += ".jpg"
     return background_filename
 
