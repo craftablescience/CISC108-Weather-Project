@@ -27,7 +27,7 @@ def get_visibility(data):
 def index():
     if request.method == 'GET':
         return render_template("index.html",
-                               form_data={"clothes": []},
+                               clothes=[],
                                background="backgrounds/default.jpg",
                                visibility="color: white;",
                                display_clothing="display: none;")
@@ -35,7 +35,7 @@ def index():
     if request.method == 'POST':
         data = find_weather_location(request.form["location"])
         return render_template('index.html',
-                               form_data={"clothes": clothes_for_location(request.form["location"])},
+                               clothes=clothes_for_location(request.form["location"]),
                                background=get_background_filename(data),
                                visibility=get_visibility(data),
                                display_clothing="")

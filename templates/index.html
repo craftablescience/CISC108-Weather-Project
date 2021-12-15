@@ -1,11 +1,11 @@
-<html>
+<html lang="en">
     <head>
         <title>CISC108 Weather App</title>
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'main.css') }}" />
         <link rel="shortcut icon" href="{{ url_for('static', filename = 'favicon.ico') }}"/>
     </head>
     <body>
-    <img id="background" src="{{ url_for('static', filename = background) }}" />
+    <img id="background" src="{{ url_for('static', filename = background) }}" alt="Background" />
         <div id="heading">
             <h1>Weather Clothing Project</h1>
             <form action="/" method="POST">
@@ -20,10 +20,8 @@
             </form>
         </div>
         <div id="clothing-container" style="{{ display_clothing }}">
-            {% for key, clothing in form_data.items() %}
-                {% for clothes in clothing %}
-                    <h2>{{clothes}}</h2>
-                {% endfor %}
+            {% for clothing_name in clothes %}
+                <h2>{{ clothing_name }}</h2>
             {% endfor %}
         </div>
     </body>
