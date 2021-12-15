@@ -9,7 +9,7 @@
     z-index: -1;
 }
 
-#heading {
+#heading, #clothing-container {
     background-color: rgba(0,0,0,0.75);
     width: 25%;
     padding: 0 24px 10px 24px;
@@ -17,6 +17,10 @@
     border-bottom-right-radius: 32px;
     margin-left: auto;
     margin-right: auto;
+}
+
+#clothing-container {
+    border-radius: 32px;
 }
 
 html {

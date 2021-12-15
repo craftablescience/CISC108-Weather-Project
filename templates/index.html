@@ -19,7 +19,7 @@
                 </label>
             </form>
         </div>
-        <div id="clothing-container">
+        <div id="clothing-container" style="{{ display_clothing }}">
             {% for key, clothing in form_data.items() %}
                 {% for clothes in clothing %}
                     <h2>{{clothes}}</h2>
