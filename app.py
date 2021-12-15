@@ -1,11 +1,9 @@
-import time
 from main import *
 from flask import *
 app = Flask(__name__)
 
 
-def get_background_filename():
-    data = find_weather_location(request.form["location"])
+def get_background_filename(data):
     background_filename = "backgrounds/"
     background_filename += "daytime" if data["sys"]["sunrise"] < data["dt"] < data["sys"]["sunset"] else "nighttime"
     background_filename += "_"
@@ -21,9 +19,21 @@ def get_background_filename():
     return background_filename
 
 
+def get_visibility(data):
+    return "color: black;" if data["sys"]["sunrise"] < data["dt"] < data["sys"]["sunset"] else "color: white;"
+
+
 @app.route('/', methods=["GET", "POST"])
 def index():
     if request.method == 'GET':
-        return render_template("index.html", form_data={"clothes": []}, background="default.png")
+        return render_template("index.html",
+                               form_data={"clothes": []},
+                               background="default.png",
+                               visibility="color: black;")
+
     if request.method == 'POST':
-        return render_template('index.html', form_data={"clothes": clothes_for_location(request.form["location"])}, background=get_background_filename())
+        data = find_weather_location(request.form["location"])
+        return render_template('index.html',
+                               form_data={"clothes": clothes_for_location(request.form["location"])},
+                               background=get_background_filename(data),
+                               visibility=get_visibility(data))
