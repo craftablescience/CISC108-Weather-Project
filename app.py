@@ -28,8 +28,8 @@ def index():
     if request.method == 'GET':
         return render_template("index.html",
                                form_data={"clothes": []},
-                               background="default.png",
-                               visibility="color: black;")
+                               background="backgrounds/default.jpg",
+                               visibility="color: white;")
 
     if request.method == 'POST':
         data = find_weather_location(request.form["location"])

@@ -4,17 +4,19 @@
     padding: 0;
     margin: 0;
     position: fixed;
+    left: 0;
+    top: 0;
     z-index: -1;
 }
 
-h1 {
-    text-align: center;
-    margin: 0;
-    padding: 10px 0;
-}
-
-form {
-    text-align: center;
+#heading {
+    background-color: rgba(0,0,0,0.75);
+    width: 25%;
+    padding: 0 24px 10px 24px;
+    border-bottom-left-radius: 32px;
+    border-bottom-right-radius: 32px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 html {
@@ -25,5 +27,12 @@ html {
 body {
     padding: 0;
     margin: 0;
+    color: white;
+    text-align: center;
     font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    margin: 0;
+    padding: 10px 0;
 }
