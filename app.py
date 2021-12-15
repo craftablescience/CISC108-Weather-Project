@@ -39,3 +39,5 @@ def index():
                                background=get_background_filename(data),
                                visibility=get_visibility(data),
                                display_clothing="")
+
+app.run()
