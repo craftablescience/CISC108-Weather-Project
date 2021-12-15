@@ -105,8 +105,7 @@ def find_weather_location(location: str)-> dict:
     A dictionary of weather of the given location
 
     '''
-    location_weather = make_request(q=location)
-    return location_weather
+    return make_request(q=location)
 
 def feels_like_temperature(weather_set: dict) -> float:
     '''
@@ -118,8 +117,7 @@ def feels_like_temperature(weather_set: dict) -> float:
     :return: float:
     A float that represents the temperature in Kelvin
     '''
-    temp = weather_set["main"]["feels_like"]
-    return temp
+    return weather_set["main"]["feels_like"]
 
 assert_equal(feels_like_temperature({'coord': {'lon': -79.9959, 'lat': 40.4406}, 'weather': [{'id': 800, 'main': 'Clear', 'description': 'clear sky', 'icon': '01d'}], 'base': 'stations', 'main': {'temp': 271.95, 'feels_like': 270.3, 'temp_min': 270.73, 'temp_max': 273.4, 'pressure': 1023, 'humidity': 64}, 'visibility': 10000, 'wind': {'speed': 1.34, 'deg': 236, 'gust': 3.13}, 'clouds': {'all': 1}, 'dt': 1638898231, 'sys': {'type': 2, 'id': 2008550, 'country': 'US', 'sunrise': 1638880203, 'sunset': 1638914006}, 'timezone': -18000, 'id': 5206379, 'name': 'Pittsburgh', 'cod': 200}
 ), 270.3)
@@ -136,9 +134,9 @@ def clothes_for_location(location: str) -> list:
     :return:
     A list of clothes that are suitable for the weather of the given location
     '''
-    if if_snowing(find_weather_location(location)) == True:
+    if if_snowing(find_weather_location(location)):
         return ["hat", "heavy coat", "scarf", "long sleeve", "pants", "boots"]
-    if if_raining(find_weather_location(location)) == True:
+    if if_raining(find_weather_location(location)):
         return ["raincoat", "long sleeve", "pants", "boots", "umbrella"]
     else:
         return clothes_by_temp(celsius_to_fahrenheit(kelvin_to_celsius(feels_like_temperature(find_weather_location(location)))))

@@ -5,7 +5,7 @@
         <link rel="shortcut icon" href="{{ url_for('static', filename = 'favicon.ico') }}"/>
     </head>
     <body>
-        <h1>Hi there</h1>
+        <h1>Weather Clothing Project</h1>
         <form action="/" method="POST">
             <label>
                 Location:
@@ -15,9 +15,10 @@
                 Submit
                 <input type="submit" value="submit" />
             </label>
-            {% for key,value in form_data.items() %}
-                <h2>{{key}}</h2>
-                <p>{{value}}</p>
+            {% for key, clothing in form_data.items() %}
+                {% for clothes in clothing %}
+                    <h2>{{clothes}}</h2>
+                {% endfor %}
             {% endfor %}
         </form>
     </body>
