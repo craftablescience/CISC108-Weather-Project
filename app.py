@@ -19,17 +19,12 @@ def get_background_filename(data):
     return background_filename
 
 
-def get_visibility(data):
-    return "color: black;" if data["sys"]["sunrise"] < data["dt"] < data["sys"]["sunset"] else "color: white;"
-
-
 @app.route('/', methods=["GET", "POST"])
 def index():
     if request.method == 'GET':
         return render_template("index.html",
                                clothes=[],
                                background="backgrounds/default.jpg",
-                               visibility="color: white;",
                                display_clothing="display: none;")
 
     if request.method == 'POST':
@@ -37,7 +32,6 @@ def index():
         return render_template('index.html',
                                clothes=clothes_for_location(request.form["location"]),
                                background=get_background_filename(data),
-                               visibility=get_visibility(data),
                                display_clothing="")
 
 app.run()
